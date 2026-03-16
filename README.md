@@ -29,3 +29,19 @@ kubectl apply -f argocd/application.yaml
 ```
 
 The app syncs `k8s/` into the `rest-api-kube` namespace.
+
+## Ingress (Docker Desktop)
+
+The ingress manifest uses `rest-api-kube.local`.
+
+Add a hosts entry:
+
+```
+127.0.0.1 rest-api-kube.local
+```
+
+Then access:
+
+```
+http://rest-api-kube.local
+```

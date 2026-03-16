@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rest-api-kube
+  namespace: rest-api-kube
+spec:
+  rules:
+    - host: rest-api-kube.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rest-api-kube
+                port:
+                  number: 80
