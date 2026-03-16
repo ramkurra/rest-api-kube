@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-api-kube
+  namespace: rest-api-kube
+  labels:
+    app: rest-api-kube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-api-kube
+  template:
+    metadata:
+      labels:
+        app: rest-api-kube
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/ramkurra/rest-api-kube:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
